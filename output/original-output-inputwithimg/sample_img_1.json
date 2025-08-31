@@ -1,0 +1,10 @@
+{
+  "prompt": "External economies of agglomeration as experience by a firm through a shift in the production function due to an increase in the size of a city ($N$ to $N'$).",
+  "final_latex_code": "\\documentclass{article}\n\\usepackage{pgfplots}\n\\pgfplotsset{compat=1.17}\n\n\\begin{document}\n\n\\begin{tikzpicture}\n    \\begin{axis}[\n        axis lines=left,\n        xlabel={Input (capital per worker)},\n        ylabel={Output per worker},\n        ymin=0, ymax=2.5,\n        xmin=0, xmax=3.5,\n        xtick=\\empty,\n        ytick=\\empty,\n        enlargelimits=false,\n        height=8cm,\n        width=10cm,\n        every axis plot post/.append style={/tikz/domain=0:3.5},\n        legend pos=north west\n    ]\n    \n    % Original Production Function\n    \\addplot [draw=black!50] {sqrt(x)};\n    \\node at (3.5, 1) {$y = G(N')f(k)$};\n    \n    % New Production Function Due to Agglomeration\n    \\addplot [draw=black!20] {1.5*sqrt(x)};\n    \\node at (3.5, 1.5) {$y = G(N)f(k)$};\n    \n    \\end{axis}\n\\end{tikzpicture}\n\nExternal economies of agglomeration as experienced by a firm through a shift in the production function due to an increase in the size of a city ($N$ to $N'$).\n\n\\end{document}",
+  "compiled_successfully": true,
+  "ground_truth": "\\documentclass{article}\n\\usepackage{tikz}\n\n\\begin{document}\n\n\\begin{tikzpicture}(10,0)\n\\draw (0,0)--(8,0) node[right]{$k$}; \n\\node [below] at (5,-0.1) {Input (capital per worker)};\n\\draw(0,0)--(0,8) node[right]{$y$};\n\\node [align=left, left] at (-0.2,7) {Output\\\\ per worker};\n\\draw(0,0) ..controls (3,5) and (8,5) .. (8,5) node[above]{$y=G(N)f(k)$};\n\\draw(0,0) ..controls (4,7) and (8,7) .. (8,7) node[above]{$y=G(N')f(k)$};\n\\end{tikzpicture}\n\n\\end{document}",
+  "attempts": 1,
+  "temperature": 0.7,
+  "max_new_tokens": 1024,
+  "max_attempts": 3
+}

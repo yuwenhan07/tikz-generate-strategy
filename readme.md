@@ -48,6 +48,7 @@ pip install torch transformers pillow tqdm automatikz
 ```
 python -m test.generate
 ```
+
 这样可以确保 `from util.latex_utils import ...` 导入正常。
 如果直接运行 `python test/generate.py`，需要在脚本里手动修改 `sys.path`。
 

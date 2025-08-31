@@ -1,0 +1,36 @@
+\documentclass{article}
+\usepackage{tikz}
+\usetikzlibrary{positioning}
+
+\begin{document}
+
+\begin{tikzpicture}[every node/.style={font=\large},
+    ellipse/.style={draw, fill=blue!10, minimum width=3cm, minimum height=2cm, thick},
+    bigellipse/.style={draw, fill=red!10, minimum width=5cm, minimum height=4cm, thick},
+    smallellipse/.style={draw, fill=yellow!10, minimum width=2cm, minimum height=1.5cm, thick},
+    textnode/.style={text width=2cm, align=center, text=blue!70}]
+
+\node[elliptic] (euler) at (-6,-1) {Eulerian sources};
+\node[bigellipse, right=of euler] (borel) {$\mathbf{Borel}$, bounded functions};
+
+\node[smallellipse, rotate=30, above right=-0.1cm and 0.2cm of euler.north east, anchor=south west] (lagrangian)
+    {Lagrangian sources \\ associated to a given $\chi$};
+
+\node[draw=none, fill=none, anchor=north west, inner sep=0pt, outer sep=0pt,
+    fit=(euler)(borel)(lagrangian), label={[xshift=-8mm]south: \parbox[t]{12cm}{\raggedright Eulerian sources \\ Lagrangian sources \\ associated to a given $\chi$}}]
+    {};
+
+\node[ellipse, below right=-0.0cm and -0.4cm of borel.south east] (broad) {Broad sources};
+\node[ellipse, left=of broad.west, yshift=0.5em] (source) {$\S$ \ref{sec:broad}}; 
+\node[ellipse, right=of source.east, yshift=0.5em] (source2) {$\S$ \ref{sec:broad}}; 
+
+\node[textnode] at (source.west|-source){\ref{sec:broad}};
+\node[textnode] at (source2.east|-source2){\ref{sec:broad}};
+
+\draw (source) to[out=0,in=0] (source2);
+\draw (source) to[out=0,in=0] (broad);
+\draw (source2) to[out=0,in=0] (broad);
+
+\end{tikzpicture}
+
+\end{document}

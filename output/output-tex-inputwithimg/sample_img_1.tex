@@ -1,0 +1,36 @@
+\documentclass{article}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.17}
+
+\begin{document}
+
+\begin{tikzpicture}
+    \begin{axis}[
+        axis lines=left,
+        xlabel={Input (capital per worker)},
+        ylabel={Output per worker},
+        ymin=0, ymax=2.5,
+        xmin=0, xmax=3.5,
+        xtick=\empty,
+        ytick=\empty,
+        enlargelimits=false,
+        height=8cm,
+        width=10cm,
+        every axis plot post/.append style={/tikz/domain=0:3.5},
+        legend pos=north west
+    ]
+    
+    % Original Production Function
+    \addplot [draw=black!50] {sqrt(x)};
+    \node at (3.5, 1) {$y = G(N')f(k)$};
+    
+    % New Production Function Due to Agglomeration
+    \addplot [draw=black!20] {1.5*sqrt(x)};
+    \node at (3.5, 1.5) {$y = G(N)f(k)$};
+    
+    \end{axis}
+\end{tikzpicture}
+
+External economies of agglomeration as experienced by a firm through a shift in the production function due to an increase in the size of a city ($N$ to $N'$).
+
+\end{document}
