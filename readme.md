@@ -76,16 +76,18 @@ outputs:
 
 ## 使用方法
 
-1. 在根目录下运行
+### 1. 在根目录下运行
 
 推荐用 模块运行方式：
 
+```
 python -m test.generate
+```
 
 这样可以确保 from util.latex_utils import ... 导入正常。
 如果直接运行 python test/generate.py，需要在脚本里手动修改 sys.path。
 
-2. YAML 控制运行参数
+### 2. YAML 控制运行参数
 
 脚本会自动读取根目录下的 config.yaml，你可以修改其中的参数来控制：
 	•	模型路径、设备（CPU/GPU）
